@@ -20,10 +20,10 @@ rootdir = Path(__file__).parent
 long_description = (rootdir / "README.md").read_text()
 
 setup(
-    name="lightning-pod",
+    name="fabric-lab",
     version="0.0.1",
     package_dir={"": "src"},
-    packages=["lightning_pod"],
+    packages=["fabric_lab"],
     description="",
     long_description=long_description,
     long_description_content_type="text/markdown",
