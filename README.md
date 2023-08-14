@@ -6,8 +6,6 @@ Fabric Lab is a public template for artificial intelligence and machine learning
 
 The recommended way for Fabric Lab users to create new repos is with the [use this template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) button.
 
-An adaptation can be found at [lightning-vision](https://github.com/JustinGoheen/fabric-lab-vision).
-
 ## The Structure
 
 ### Source Module
@@ -16,7 +14,7 @@ An adaptation can be found at [lightning-vision](https://github.com/JustinGoheen
 
 `fabric_lab.backend` should contain MixIns, Hooks, and utilities.
 
-`fabric_lab.components` should contain Lightning Flows and Works for use with LightningApps, grouped by purpose for cohesion.
+`fabric_lab.components` should contain workers (i.e. sweeps) grouped by purpose for cohesion.
 
 `fabric_lab.pipeline` should contain code for data acquistion and preprocessing, and building a TorchDataset and LightningDataModule.
 
