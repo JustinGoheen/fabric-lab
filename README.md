@@ -2,7 +2,7 @@
 
 ## Overview
 
-Fabric Lab is a public template for artificial intelligence and machine learning research projects using the [Lightning.ai](https://lightning.ai) ecosystem.
+Fabric Lab is a public template for artificial intelligence and machine learning research projects using Lightning AI's [Lightning Fabric](https://lightning.ai/docs/fabric/stable/).
 
 The recommended way for Fabric Lab users to create new repos is with the [use this template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) button.
 
