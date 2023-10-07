@@ -14,7 +14,7 @@
 
 import torch
 
-from fabric_lab.core.module import PodModule
+from fabriclab.core.module import PodModule
 
 
 def test_module_not_abstract():

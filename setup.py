@@ -20,10 +20,10 @@ rootdir = Path(__file__).parent
 long_description = (rootdir / "README.md").read_text()
 
 setup(
-    name="fabric-lab",
+    name="fabriclab",
     version="0.0.1",
     package_dir={"": "src"},
-    packages=["fabric_lab"],
+    packages=["fabriclab"],
     description="",
     long_description=long_description,
     long_description_content_type="text/markdown",

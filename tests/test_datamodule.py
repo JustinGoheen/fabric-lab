@@ -17,7 +17,7 @@ from pathlib import Path
 
 import torch
 
-from fabric_lab.pipeline.datamodule import PodDataModule
+from fabriclab.pipeline.datamodule import PodDataModule
 
 
 def test_module_not_abstract():

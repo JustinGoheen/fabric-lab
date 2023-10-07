@@ -10,21 +10,21 @@ The recommended way for Fabric Lab users to create new repos is with the [use th
 
 ### Source Module
 
-`fabric_lab.core` should contain code for the Lightning Module and Trainer.
+`fabriclab.core` should contain code for the Lightning Module and Trainer.
 
-`fabric_lab.backend` should contain MixIns, Hooks, and utilities.
+`fabriclab.backend` should contain MixIns, Hooks, and utilities.
 
-`fabric_lab.components` should contain workers (i.e. sweeps) grouped by purpose for cohesion.
+`fabriclab.components` should contain workers (i.e. sweeps) grouped by purpose for cohesion.
 
-`fabric_lab.pipeline` should contain code for data acquistion and preprocessing, and building a TorchDataset and LightningDataModule.
+`fabriclab.pipeline` should contain code for data acquistion and preprocessing, and building a TorchDataset and LightningDataModule.
 
-`fabric_lab.api` should contain code for model serving APIs built with [FastAPI](https://fastapi.tiangolo.com/project-generation/#machine-learning-models-with-spacy-and-fastapi).
+`fabriclab.api` should contain code for model serving APIs built with [FastAPI](https://fastapi.tiangolo.com/project-generation/#machine-learning-models-with-spacy-and-fastapi).
 
-`fabric_lab.cli` should contain code for the command line interface built with [Click](https://click.palletsprojects.com/en/8.1.x/) and [Rich](https://rich.readthedocs.io/en/stable/).
+`fabriclab.cli` should contain code for the command line interface built with [Click](https://click.palletsprojects.com/en/8.1.x/) and [Rich](https://rich.readthedocs.io/en/stable/).
 
-`fabric_lab.pages` should contain code for data apps built with streamlit, dash, or reflex. the `pages` module naming convention is borrowed from React concepts.
+`fabriclab.pages` should contain code for data apps built with streamlit, dash, or reflex. the `pages` module naming convention is borrowed from React concepts.
 
-`fabric_lab.conf.py` and `fabric_lab.conf.yaml` can assist with project, trainer, and sweep configurations. The .yaml file is provided for users who may want to use hydra.cc, or omegaconf with click; I prefer omegaconf and click.
+`fabriclab.config.py` and `fabriclab.config.yaml` can assist with project, trainer, and sweep configurations. The .yaml file is provided for users who may want to use hydra.cc, or omegaconf with click; I prefer omegaconf and click.
 
 ### Project Root
 
@@ -77,53 +77,3 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -e ".[full, vision]"
 ```
-
-## Learning Resources
-
-### Reviewing Source Code
-
-The following three videos were created by Lightning's Thomas Chaton; the videos are extremely helpful in learning how to use code search features in VS Code to navigate a project's source code, enabling a deeper understanding of what is going on under the hood of someone else's code.
-
-> these videos were created before PyTorch Lightning was moved into the Lightning Framework mono repo
-
-[Lightning Codebase Deep Dive 1](https://youtu.be/aEeh9ucKUkU) <br>
-[Lightning Codebase Deep Dive 2](https://youtu.be/NEpRYqdsm54) <br>
-[Lightning Codebase Deep Dive 3](https://youtu.be/x4d4RDNJaZk)
-
-### General Engineering and Tools
-
-Lightning's founder, and their lead educator have created a series of short videos called [Lightning Bits](https://lightning.ai/pages/ai-education/#bits) for beginners who need guides for using IDEs, git, and terminal.
-
-A long standing Python community resource has been [The Hitchhiker's Guide to Python](https://docs.python-guide.org). The "guide exists to provide both novice and expert Python developers a best practice handbook for the installation, configuration, and usage of Python on a daily basis".
-
-[VS Code](https://code.visualstudio.com/docs) and [PyCharm](https://www.jetbrains.com/help/pycharm/installation-guide.html) IDEs have each provided great docs for their users. My preference is VS Code - though PyCharm does have its benefits and is absolutely a suitable alternative to VS Code. I especially like VS Code's [integrations for PyTorch and tensorboard](https://code.visualstudio.com/docs/datascience/pytorch-support). I pair [Gitkraken](https://www.gitkraken.com) and [GitLens](https://www.gitkraken.com/gitlens) with VS Code to manage my version control and contributions.
-
-### Data Analysis
-
-Wes McKinney, creator of Pandas and founder of Voltron Data (responsible for Ibis, Apache Arrow etc) has released his third edition of [Python for Data Analysis](https://wesmckinney.com/book/) in an open access format.
-
-### Intro to Artificial Intelligence and Mathematics for Machine Learning
-
-Harvard University has developed an [Introduction to Artificial Intelligence with Python](https://www.edx.org/course/cs50s-introduction-to-artificial-intelligence-with-python) course that can be audited for free.
-
-[Artificial Intelligence: A Modern Approach](https://www.google.com/books/edition/_/koFptAEACAAJ?hl=en&sa=X&ved=2ahUKEwj3rILozs78AhV1gIQIHbMWCtsQ8fIDegQIAxBB) is the most widely used text on Artificial Intelligence in college courses.
-
-[Mathematics for Machine Learning](https://mml-book.github.io) provides "the necessary mathematical skills to read" books that cover advanced maching learning techniques.
-
-Grant Sanderson, also known as 3blue1brown on YouTube, has provided a very useful, high level [introduction to neural networks](https://www.3blue1brown.com/topics/neural-networks). Grant's [other videos](https://www.3blue1brown.com/#lessons) are also useful for computer and data science, and mathematics in general.
-
-### Deep Learning
-
-Lightning AI's Sebastian Raschka has created a [free series on Deep Learning](https://lightning.ai/pages/courses/deep-learning-fundamentals/) and has shared his [university lectures](https://sebastianraschka.com/teaching/).
-
-NYU's Alfredo Canziani has created a [YouTube Series](https://www.youtube.com/playlist?list=PLLHTzKZzVU9e6xUfG10TkTWApKSZCzuBI) for his lectures on deep learning and has also made his his course materials public [on GitHub](https://github.com/Atcold/NYU-DLSP21).
-
-The book [Dive into Deep Learning](http://d2l.ai/#), created by a team of Amazon engineers, is availlable for free.
-
-DeepMind has shared several lectures series created for UCL [on YouTube](https://www.youtube.com/c/DeepMind/playlists?view=50&sort=dd&shelf_id=9).
-
-OpenAI has created [Spinning Up in Deep RL](https://spinningup.openai.com/en/latest/), an introductory series in deep reinforcement learning.
-
-### MLOps
-
-Weights and Biases has created a free course for MLOps titled [Effective MLOps: Model Development](https://www.wandb.courses/courses/effective-mlops-model-development)
