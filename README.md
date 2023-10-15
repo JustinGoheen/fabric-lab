@@ -6,35 +6,25 @@ Fabric Lab is a public template for artificial intelligence and machine learning
 
 The recommended way for Fabric Lab users to create new repos is with the [use this template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) button.
 
-## The Structure
+The example uses a language transformer borrowed from the PyTorch Lightning demos.
 
-### Source Module
+## Source Module
 
-`fabriclab.core` should contain code for the Lightning Module and Trainer.
+`fabriclab.core` contains code for the Lightning Module and Trainer.
 
-`fabriclab.backend` should contain MixIns, Hooks, and utilities.
+`fabriclab.components` contains workers (i.e. sweeps) grouped by purpose for cohesion.
 
-`fabriclab.components` should contain workers (i.e. sweeps) grouped by purpose for cohesion.
+`fabriclab.pipeline` contains code for data acquistion and preprocessing, and building a TorchDataset and LightningDataModule.
 
-`fabriclab.pipeline` should contain code for data acquistion and preprocessing, and building a TorchDataset and LightningDataModule.
+`fabriclab.serve` contains code for model serving APIs built with [FastAPI](https://fastapi.tiangolo.com/project-generation/#machine-learning-models-with-spacy-and-fastapi).
 
-`fabriclab.serve` should contain code for model serving APIs built with [FastAPI](https://fastapi.tiangolo.com/project-generation/#machine-learning-models-with-spacy-and-fastapi).
+`fabriclab.cli` contains code for the command line interface built with [Typer](https://typer.tiangolo.com/)and [Rich](https://rich.readthedocs.io/en/stable/).
 
-`fabriclab.cli` should contain code for the command line interface built with [Typer](https://typer.tiangolo.com/)and [Rich](https://rich.readthedocs.io/en/stable/).
+`fabriclab.app` contains code for data apps built with streamlit, dash, or reflex. 
 
-`fabriclab.pages` should contain code for data apps built with streamlit, dash, or reflex. the `pages` module naming convention is borrowed from React concepts.
+`fabriclab.config` assists with project, trainer, and sweep configurations.
 
-`fabriclab.config.py` and `fabriclab.config.yaml` can assist with project, trainer, and sweep configurations. The .yaml file is provided for users who may want to use hydra.cc, or omegaconf with click; I prefer omegaconf and click.
-
-### Project Root
-
-<details>
-    <summary>Root Directories and Files</summary>
-    <br>
-
-`app.py` is the Lightning App.
-
-`assets` directory contains CSS and images for pages.
+## Project Root
 
 `data` directory should be used to cache the TorchDataset and training splits locally if the size of the dataset allows for local storage. additionally, this directory should be used to cache predictions during HPO sweeps.
 
@@ -54,13 +44,10 @@ The recommended way for Fabric Lab users to create new repos is with the [use th
 
 `.pre-commit-config.yaml` is required by pre-commit to install its git-hooks.
 
-</details>
 
 ## Base Requirements and Extras
 
 Fabric Lab installs minimal requirements out of the box, and provides extras to make creating robust virtual environments easier. To view the requirements, in [setup.cfg](setup.cfg), see `install_requires` for the base requirements and `options.extras_require` for the available extras.
-
-> popular alternatives are listed in the extras, and commented out to avoid installation. to use the alternatives, uncomment the line and then comment out or delete the libraries you do not want to install
 
 The recommended install is as follows:
 
