@@ -1,4 +1,6 @@
 # pytorch lightning, lightning app, torchmetrics, pytorch core
-lightning
+lightning-fabric
 torch
+torchtext
 wandb
+torch-tb-profiler
