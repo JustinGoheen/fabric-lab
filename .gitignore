@@ -143,12 +143,8 @@ dmypy.json
 .idea
 
 # profiler, logger logs, model checkpoints, production models, data
-outputs/
-models/checkpoints/model-*
+models/checkpoints
 logs/tensorboard/version*
-logs/torch_profiler/fit*
-logs/torch_profiler/predict*
-logs/torch_profiler/test*
-logs/wandb_logs/wandb
-data/cache/LabDataset
-wandb/
+logs/torch_profiler
+logs/wandb
+data/cache

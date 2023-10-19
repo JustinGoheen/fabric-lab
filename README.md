@@ -20,7 +20,7 @@ The example uses a language transformer borrowed from the PyTorch Lightning demo
 
 `fabriclab.cli` contains code for the command line interface built with [Typer](https://typer.tiangolo.com/)and [Rich](https://rich.readthedocs.io/en/stable/).
 
-`fabriclab.app` contains code for data apps built with streamlit, dash, or reflex. 
+`fabriclab.app` contains code for data apps built with streamlit.
 
 `fabriclab.config` assists with project, trainer, and sweep configurations.
 
@@ -43,7 +43,6 @@ The example uses a language transformer borrowed from the PyTorch Lightning demo
 `setup.py` `setup.cfg` `pyproject.toml` and `MANIFEST.ini` assist with packaging the Python project.
 
 `.pre-commit-config.yaml` is required by pre-commit to install its git-hooks.
-
 
 ## Base Requirements and Extras
 
