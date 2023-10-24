@@ -61,5 +61,5 @@ where { domain extra(s) } is one of, or some combination of (vision, text, audio
 ```sh
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -e ".[full, vision]"
+pip install -e ".[full, text]"
 ```

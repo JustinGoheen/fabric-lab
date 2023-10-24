@@ -14,8 +14,6 @@ import torch.nn.functional as F
 from torch import Tensor
 from torch.nn.modules import MultiheadAttention
 
-import pytorch_lightning as pl
-
 if hasattr(MultiheadAttention, "_reset_parameters") and not hasattr(MultiheadAttention, "reset_parameters"):
     # See https://github.com/pytorch/pytorch/issues/107909
     MultiheadAttention.reset_parameters = MultiheadAttention._reset_parameters

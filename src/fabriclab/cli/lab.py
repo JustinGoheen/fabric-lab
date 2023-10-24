@@ -3,6 +3,7 @@ from pathlib import Path
 from typing import List, Union
 
 import typer
+from rich import print as rprint
 from typing_extensions import Annotated
 from lightning_fabric.loggers.csv_logs import CSVLogger
 
@@ -41,11 +42,15 @@ def serve_docs() -> None:
 
 
 # RUN APP
+@run_app.command("demo")
+def run_demo():
+    rprint("RUNNING DEMO")
+    os.system(f"python {PKGPATH}/demo.py")
 
 
-@run_app.command("demo-run")
-def run_demo_run(
-    devices: Annotated[Union[int, List, str], typer.Option()] = 1,
+@run_app.command("demo-trainer")
+def run_demo_trainer(
+    devices: Annotated[int, typer.Option()] = 1,
     accelerator: Annotated[str, typer.Option()] = "auto",
     strategy: Annotated[str, typer.Option()] = "auto",
     num_nodes: Annotated[int, typer.Option()] = 1,

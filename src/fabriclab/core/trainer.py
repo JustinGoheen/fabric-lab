@@ -1,3 +1,4 @@
+import torch
 from lightning_fabric import Fabric
 
 
@@ -22,17 +23,29 @@ class LabTrainer:
         )
         self.max_epochs = max_epochs
         self.model = None
-        self.datamodule = None
+        self.dataloader = None
+        self.optimizer = None
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-        if devices > 1:
-            self.fabric.launch()
-
-    def fit(self, model, datamodule) -> None:
+    def fit(self, model, dataloader, optimizer) -> None:
         self.model = model
-        self.datamodule = datamodule
+        self.dataloader = dataloader
+        self.optimizer = optimizer
 
-        self.datamodule.prepare_data()
-        self.datamodule.setup()
+        self.model = self.model.to(self.device)
+        self.model, self.optimizer = self.fabric.setup(self.model, self.optimizer)
+        self.dataloader = self.fabric.setup_dataloaders(self.dataloader)
 
-        for i in range(self.max_epochs):
-            ...
+        self.fabric.launch()
+
+        self.model.train()
+        for epoch in range(self.max_epochs):
+            for batch in self.dataloader:
+                input, target = batch
+                input, target = input.to(self.device), target.to(self.device)
+                self.optimizer.zero_grad()
+                output = self.model(input, target)
+                loss = torch.nn.functional.nll_loss(output, target.view(1))
+                loss.backward()
+                self.fabric.backward(loss)
+                self.optimizer.step()

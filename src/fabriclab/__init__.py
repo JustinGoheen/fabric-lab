@@ -14,4 +14,4 @@
 
 from fabriclab.config import Config
 from fabriclab.core import LabModule, LabTrainer
-from fabriclab.pipeline import LabDataModule
+from fabriclab.pipeline import LabDataModule, LabDataset
