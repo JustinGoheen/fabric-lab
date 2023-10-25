@@ -4,7 +4,7 @@
 
 Fabric Lab is a public template for artificial intelligence and machine learning research projects using Lightning AI's [Lightning Fabric](https://lightning.ai/docs/fabric/stable/).
 
-The recommended way for Fabric Lab users to create new repos is with the [use this template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) button.
+The recommended way for Fabric Lab users to create new repos is with the [use this template](https://github.com/new?template_name=fabric-lab&template_owner=JustinGoheen) button.
 
 The example uses a language transformer borrowed from the PyTorch Lightning demos.
 
@@ -12,15 +12,15 @@ The example uses a language transformer borrowed from the PyTorch Lightning demo
 
 `fabriclab.core` contains code for the Lightning Module and Trainer.
 
-`fabriclab.components` contains workers (i.e. sweeps) grouped by purpose for cohesion.
+`fabriclab.components` contains tasks grouped by purpose for cohesion.
 
-`fabriclab.pipeline` contains code for data acquistion and preprocessing, and building a TorchDataset and LightningDataModule.
+`fabriclab.pipeline` contains code for data acquistion and preprocessing, and building a TorchDataset.
 
 `fabriclab.serve` contains code for model serving APIs built with [FastAPI](https://fastapi.tiangolo.com/project-generation/#machine-learning-models-with-spacy-and-fastapi).
 
 `fabriclab.cli` contains code for the command line interface built with [Typer](https://typer.tiangolo.com/)and [Rich](https://rich.readthedocs.io/en/stable/).
 
-`fabriclab.app` contains code for data apps built with streamlit.
+`fabriclab.app` contains code for data apps built with Streamlit.
 
 `fabriclab.config` assists with project, trainer, and sweep configurations.
 
@@ -62,4 +62,12 @@ where { domain extra(s) } is one of, or some combination of (vision, text, audio
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -e ".[full, text]"
+```
+
+## Using Fabric Lab
+
+After installing fabric-lab, you can run the demo with:
+
+```sh
+lab run demo
 ```
