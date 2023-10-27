@@ -25,16 +25,10 @@ class LabTrainer:
         self.model = None
         self.dataloader = None
         self.optimizer = None
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    def fit(self, model, dataloader, optimizer) -> None:
-        self.model = model
-        self.dataloader = dataloader
-        self.optimizer = optimizer
-
-        self.model = self.model.to(self.device)
-        self.model, self.optimizer = self.fabric.setup(self.model, self.optimizer)
-        self.dataloader = self.fabric.setup_dataloaders(self.dataloader)
+    def fit(self, model, dataset, optimizer) -> None:
+        self.model, self.optimizer = self.fabric.setup(model, optimizer)
+        self.dataloader = self.fabric.setup_dataloaders(dataset)
 
         self.fabric.launch()
 
@@ -42,10 +36,8 @@ class LabTrainer:
         for epoch in range(self.max_epochs):
             for batch in self.dataloader:
                 input, target = batch
-                input, target = input.to(self.device), target.to(self.device)
                 self.optimizer.zero_grad()
                 output = self.model(input, target)
                 loss = torch.nn.functional.nll_loss(output, target.view(1))
-                loss.backward()
                 self.fabric.backward(loss)
                 self.optimizer.step()
