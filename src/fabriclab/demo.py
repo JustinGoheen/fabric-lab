@@ -4,7 +4,13 @@ from lightning_fabric import Fabric
 from fabriclab import LabDataset, LabModule
 
 
-fabric = Fabric(accelerator="auto", devices="auto", strategy="auto")
+fabric = Fabric(
+    accelerator="auto",
+    strategy="auto",
+    devices="auto",
+    num_nodes=1,
+    precision="32-true",
+)
 fabric.launch()
 
 # prepare the dataset
